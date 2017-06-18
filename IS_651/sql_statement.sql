@@ -143,3 +143,8 @@ FROM emp_oracle emp, dept_oracle dep
 WHERE emp.DEPTNO = dep.DEPTNO
 AND dep.DNAME in ('Accounting','Finance')
 AND emp.SAL > 2000;
+
+SELECT e1.EMPNO, e1.ENAME, e1.MGR, e2.ENAME MGR_NAME
+FROM emp_oracle e1, emp_oracle e2
+WHERE e1.MGR = e2.EMPNO
+ORDER BY e1.EMPNO;
