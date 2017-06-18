@@ -93,3 +93,53 @@ WHERE ENAME LIKE '%S%';
 SELECT ENAME, JOB, SAL 
 FROM emp_oracle 
 WHERE MGR IS NULL;
+
+SELECT ENAME, JOB, SAL 
+FROM emp_oracle 
+WHERE ENAME LIKE 'J%' AND SAL < 2000;
+
+SELECT ENAME, JOB, SAL*12 ANNUAL_SAL 
+FROM emp_oracle 
+WHERE DEPTNO IN (10,20) 
+AND SAL*12 BETWEEN 20000 AND 30000
+ORDER BY SAL DESC;
+
+SELECT AVG(SAL), SUM(SAL), MIN(SAL), MAX(SAL)
+FROM emp_oracle;
+
+SELECT COUNT(*)
+FROM emp_oracle;
+
+SELECT JOB, AVG(SAL)
+FROM emp_oracle
+GROUP BY JOB;
+
+SELECT JOB, AVG(SAL)
+FROM emp_oracle
+GROUP BY JOB
+HAVING job in ('SALESMAN','MANAGER');
+
+SELECT JOB, SUM(SAL)
+FROM emp_oracle
+GROUP BY JOB
+HAVING SUM(SAL) > 5000;
+
+SELECT ENAME, DEPTNO, SAL 
+FROM emp_oracle;
+
+SELECT * 
+FROM dept_oracle;
+
+SELECT ENAME, DNAME, SAL 
+FROM emp_oracle, dept_oracle
+WHERE emp_oracle.DEPTNO = dept_oracle.DEPTNO;
+
+SELECT ENAME, DNAME, SAL 
+FROM emp_oracle emp, dept_oracle dep
+WHERE emp.DEPTNO = dep.DEPTNO;
+
+SELECT ENAME, DNAME, SAL 
+FROM emp_oracle emp, dept_oracle dep
+WHERE emp.DEPTNO = dep.DEPTNO
+AND dep.DNAME in ('Accounting','Finance')
+AND emp.SAL > 2000;
