@@ -49,3 +49,7 @@ ORDER BY ANNUAL_SAL desc;
 
 SELECT distinct JOB
 FROM emp_oracle;
+
+SELECT ENAME , JOB, SAL OLD_SAL, SAL + (SAL * 0.10) NEW_SAL
+FROM emp_oracle
+ORDER BY SAL desc;
