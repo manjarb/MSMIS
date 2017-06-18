@@ -46,3 +46,6 @@ FROM emp_oracle;
 SELECT ENAME , JOB, SAL*12 ANNUAL_SAL, SAL*12*0.10 ANNUAL_TAX 
 FROM emp_oracle
 ORDER BY ANNUAL_SAL desc;
+
+SELECT distinct JOB
+FROM emp_oracle;
