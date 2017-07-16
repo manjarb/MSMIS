@@ -16,3 +16,14 @@
  ----------------------------------------- -------- ----------------------------
  DEPTNO                                    NOT NULL CHAR(2)
  DNAME                                              VARCHAR2(20)
+
+SELECT dept.deptno, ROUND(AVG(emp.sal),2) 
+from emp_oracle emp, dept_oracle dept
+where emp.deptno = dept.deptno
+GROUP BY dept.deptno;
+
+SELECT dept.dname, AVG(emp.sal)
+from emp_oracle emp, dept_oracle dept
+where emp.deptno = dept.deptno
+GROUP BY dept.dname
+HAVING COUNT(emp.deptno) > 5;
