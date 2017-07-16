@@ -42,10 +42,10 @@ from emp_oracle emp, dept_oracle dept
 where dept.dname <> 'Accounting';
 
 // 5
-SELECT emp.ename, emp.sal, dept.deptno
-from emp_oracle emp, dept_oracle dept
-where (emp.sal, emp.deptno) in (select d.deptno, MIN(e.sal) 
-								 from emp_oracle e, dept_oracle d
-								 GROUP BY e.deptno);
+SELECT ename, sal, deptno
+from emp_oracle
+where (deptno,sal) in (select deptno, MIN(sal) 
+								 from emp_oracle
+								 GROUP BY deptno);
 
 
