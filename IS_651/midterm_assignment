@@ -45,7 +45,36 @@ where dept.dname <> 'Accounting';
 SELECT ename, sal, deptno
 from emp_oracle
 where (deptno,sal) in (select deptno, MIN(sal) 
-								 from emp_oracle
-								 GROUP BY deptno);
+			from emp_oracle
+			GROUP BY deptno);
+			
+// 6
+SELECT job, MAX(sal)
+FROM emp
+GROUP BY job
+HAVING MAX(sal) > 5000
+
+// 7 
+SELECT emplo.empno AS Emp_no, emplo.ename AS Emp_name, manager.empno AS Manager_no, manager.ename AS Manager_name
+FROM emp emplo, emp manager
+WHERE emplo.mgr =  manager.empno
+
+// 8
+SELECT dept.dname, dept.deptno, emp.ename
+FROM emp, dept
+WHERE emp.deptno = dept.deptno
+
+// 9
+SELECT employee.ename, employee.sal, manager.ename, manager.sal 
+FROM emp employee, emp manager
+WHERE employee.mgr = manager.empno and employee.sal >= manager.sal
+
+// 10
+SELECT ename, dname, sal
+FROM emp, dept
+WHERE emp.deptno = dept.deptno and sal < 5000 and dname <> 'marketing'
+
+			
+			
 
 
