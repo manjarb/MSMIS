@@ -38,9 +38,9 @@ where sal > (SELECT AVG(sal) FROM emp_oracle)
 ORDER BY sal asc;
 
 // 4
-SELECT emp.ename, emp.sal
-from emp_oracle emp, dept_oracle dept
-where dept.dname <> 'Accounting';
+SELECT ename, sal
+FROM emp, dept
+WHERE emp.deptno = dept.deptno and dept.dname <> 'accounting';
 
 // 5
 SELECT ename, sal, deptno
