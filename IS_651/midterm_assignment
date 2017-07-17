@@ -34,7 +34,8 @@ HAVING COUNT(emp.deptno) > 5;
 // 3
 SELECT ename, sal, job
 from emp_oracle
-where sal > (SELECT AVG(sal) FROM emp_oracle);
+where sal > (SELECT AVG(sal) FROM emp_oracle)
+ORDER BY sal asc;
 
 // 4
 SELECT emp.ename, emp.sal
